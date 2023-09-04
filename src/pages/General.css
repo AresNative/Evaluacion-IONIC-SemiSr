@@ -1,0 +1,25 @@
+.input-form{
+    --border-radius: 5px;
+    --border-color: #f2f2f7;
+    --background: #f2f2f2;
+    margin: 1rem;
+    width: 90%;
+}
+.button-form{
+    margin: 1rem;
+    margin-top: 5rem;
+    width: 90%;
+}
+.item-redirect{
+    --background: transparent;
+    text-decoration: none;
+    --ion-border-color: transparent;
+}
+.form-login {
+    margin-top: 15%;
+}
+@media (max-width: 768px) {
+    .form-login {
+        margin-top: 70%;
+    }
+}
