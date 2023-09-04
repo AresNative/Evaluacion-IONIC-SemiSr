@@ -23,13 +23,13 @@ import { useHistory } from 'react-router';
 
 const UserLogin: React.FC = () => {
   const [present] = useIonToast();
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const history = useHistory();
   const handleLogin = (data: any) => {
     try {
       const storedUserData: any = localStorage.getItem('userData') ?? [];
@@ -43,7 +43,8 @@ const UserLogin: React.FC = () => {
             color: 'success',
             icon: checkmarkCircleOutline,
           });
-          setLoggedIn(true);
+
+          history.push('/movis')
         } else {
           present({
             message: 'Credenciales incorrectas. Por favor, inténtalo de nuevo.',
@@ -71,12 +72,6 @@ const UserLogin: React.FC = () => {
     }
   };
 
-  const history = useHistory();
-  useEffect(() => {
-    if (loggedIn) {
-      history.push('/movis')
-    }
-  }, [loggedIn])
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const PasswordToggleIcon = showPassword ? eye : eyeOff;
